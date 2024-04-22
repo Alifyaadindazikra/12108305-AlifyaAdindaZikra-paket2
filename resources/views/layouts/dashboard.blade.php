@@ -56,7 +56,7 @@
 
     <!-- Template JS File -->
     <script src="{{ asset('assets/dist/js/scripts.js') }}"></script>
-    <script src="{{ asset('assets/dist/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/dist/js/custom.js') }}"></script> 
 
     @yield('scripts')
 </body>

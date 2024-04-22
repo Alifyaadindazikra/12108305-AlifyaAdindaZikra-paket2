@@ -20,12 +20,12 @@ Route::get('/', function () {
     return view('pages.index');
 });
 Route::middleware("isLogin")->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/dashboard', function (){
         return view('pages.dashboard');
     })->name('dashboard');
 
-    Route::middleware("isAdmin")->group(function () {
-        // User
+    Route::middleware("isAdmin")->group(function (){
+        // Role User
         Route::get("/dashboard/user", [UserController::class, "index"])->name("user");
         Route::get("/dashboard/user/create", [UserController::class, "create"])->name("user.create");
         Route::post("/dashboard/user/store", [UserController::class, "store"])->name("user.store");
@@ -34,7 +34,7 @@ Route::middleware("isLogin")->group(function () {
         Route::delete("/dashboard/user/destroy/{id}", [UserController::class, "destroy"])->name("user.destroy");
     });
 
-    Route::middleware("isStaff")->group(function () {
+    Route::middleware("isStaff")->group(function (){
         Route::get("/dashboard/sale/create", [SaleController::class, "create"])->name("sale.create");
         Route::post("/dashboard/sale/store", [SaleController::class, "store"])->name("sale.store");
     });
@@ -58,6 +58,8 @@ Route::middleware("isLogin")->group(function () {
     Route::patch("/dashboard/product/update/{id}", [ProductController::class, "update"])->name("product.update");
     Route::patch("/dashboard/product/updateStock/{id}", [ProductController::class, "updateStock"])->name("product.updateStock");
     Route::delete("/dashboard/product/destroy/{id}", [ProductController::class, "destroy"])->name("product.destroy");
+    
+
 });
 
 require __DIR__ . '/auth.php';

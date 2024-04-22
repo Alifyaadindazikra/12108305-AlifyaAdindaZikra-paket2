@@ -18,7 +18,7 @@ class isAdmin
         if (auth()->user() && auth()->user()->role == 'admin') {
             return $next($request);
         }
-
-        return back()->with('error', 'Unauthorized');
+        
+        return back()->with('error', 'Unauthorized');  
     }
 }

@@ -36,7 +36,7 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->role }}</td>
-                                        <td class="d-flex">
+                                        <td class="d-flex"> 
                                             <a class="btn btn-warning btn-sm "
                                                 href="{{ route('user.edit', ['id' => $user->id]) }}"
                                                 class="btn btn-primary">Edit</a>

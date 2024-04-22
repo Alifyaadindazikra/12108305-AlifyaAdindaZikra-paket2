@@ -13,7 +13,7 @@ class DetailSale extends Model
         "sale_id",
         "product_id",
         "amount",
-        "subtotal"
+        "subtotal", 
     ];
 
     public function sale()

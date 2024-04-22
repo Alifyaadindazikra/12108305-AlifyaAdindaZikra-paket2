@@ -10,9 +10,11 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $searchTerm = $request->input('query');
+        $products = Product::where('name','like','%'.$searchTerm.'%')->get();
+        
 
         return view('pages.product.index', compact('products'));
     }
@@ -44,7 +46,7 @@ class ProductController extends Controller
                 'name' => $request->name,
                 'price' => $request->price,
                 'stock' => $request->stock,
-                'image' => $imageName
+                'image' => $imageName,
             ]);
         } else {
             Product::create([

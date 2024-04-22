@@ -27,7 +27,7 @@ class AuthController extends Controller
 
     public function loginView()
     {
-        return view('pages.auth.login');
+        return view('pages.auth.login'); 
     }
 
     public function registerView()
@@ -55,6 +55,6 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/login'); 
     }
 }

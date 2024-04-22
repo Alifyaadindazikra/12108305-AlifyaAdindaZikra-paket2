@@ -23,7 +23,7 @@
                     <div>Customer Address: {{ $data['address'] }}</div>
                     <div>Customer Phone: {{ $data['phone'] }}</div>
                 </div>
-                <a href="/dashboard/sale/pdf" class="btn btn-primary h-100" target="_blank">Export PDF</a>
+                <a href="/dashboard/sale/pdf" class="btn btn-primary h-100" target="_blank">Export to PDF</a>
             </div>
             <table class="table">
                 <thead>
@@ -31,14 +31,14 @@
                         <th scope="col">Product Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Subtotal</th>
+                        <th scope="col">Subtotal</th> 
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($detailSale as $item)
                         <tr>
                             <td>{{ $item['name'] }}</td>
-                            <td>{{ $item['quantity'] }}</td>
+                            <td>{{ $item['quantity'] }}</td>  
                             <td>{{ number_format($item['price']) }}</td>
                             <td>{{ number_format($item['subtotal']) }}</td>
                         </tr>

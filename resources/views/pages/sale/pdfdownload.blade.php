@@ -148,9 +148,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td>
+                    <td>
                             <h2>Return</h2>
                         </td>
                         <td>
@@ -161,7 +159,7 @@
             </div>
             <div id="legalcopy">
                 <center>
-                    <p class="legal"><strong>Thank You!</strong></p>
+                    <p class="legal"><strong>Thank You For Shopping!</strong></p>
                 </center>
             </div>
         </div>

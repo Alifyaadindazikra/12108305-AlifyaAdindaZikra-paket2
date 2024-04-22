@@ -5,6 +5,10 @@
         <section class="section-header">
             <h1>Product</h1>
         </section>
+        <form action="{{ route('product') }}" method="GET">
+    <input type="text" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
+         </form>
         @if (session('success'))
             <div class="alert alert-success alert-dismissible show fade">
                 <div class="alert-body">

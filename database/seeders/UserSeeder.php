@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
+    public function run(): void 
     {
         User::create([
             'name' => 'Admin',
@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('admin'),
             'role' => 'admin',
         ]);
-
+            
         User::create([
             'name' => 'Staff',
             'email' => 'staff@localhost',

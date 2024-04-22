@@ -5,6 +5,9 @@
         <section class="section-header">
             <h1>Sale</h1>
         </section>
+        <form action="{{ route('sale') }}" method="GET">
+    <input type="text" name="query" placeholder="Search...">
+    <button type="submit">Search</button>
         @if (session('success'))
             <div class="alert alert-success alert-dismissible show fade">
                 <div class="alert-body">
@@ -76,7 +79,7 @@
                                                 <form action="{{ route('sale.destroy', ['id' => $sale->id]) }}"
                                                     method="POST">
                                                     @csrf
-                                                    @method('DELETE')
+                                                    @method('DELETE') 
                                                     <button type="submit" class="btn btn-danger btn-sm">
                                                         Delete</button>
                                                 </form>
@@ -125,16 +128,18 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div>Total Price: Rp{{ number_format($sale->total_price) }}</div>
-                        <div>Paid Amount: Rp{{ number_format($sale->paid_amount) }}</div>
+                        <div>Total Price: Rp.{{ number_format($sale->total_price) }}</div>
+                        <div>Paid Amount: Rp.{{ number_format($sale->paid_amount) }}</div>
                         <div>Return: Rp{{ number_format($sale->paid_amount - $sale->total_price) }}</div>
+
+                       
                     </div>
                     <div class="modal-footer bg-whitesmoke br">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
                             Close
                         </button>
                     </div>
-                </div>
+                </div>   
             </div>
         </div>
     @endforeach

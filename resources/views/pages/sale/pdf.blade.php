@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Invoice</title>
+    <title>Invoice</title> 
     <style>
         #back-wrap {
             margin: 30px auto 0 30px;
@@ -89,14 +89,14 @@
     </div>
     <div id="receipt">
         <center id="top">
-            <h2>Cashier</h2>
+            <h2>Note Cashier</h2>
         </center>
         <div id="mid">
             <div class="info">
                 <br>
                 Nama Pelanggan : {{ $data['name'] }}</br>
                 Alamat Pelanggan : {{ $data['address'] }}</br>
-                No HP Pelanggan : {{ $data['phone'] }}</br>
+                No HP Pelanggan : {{ $data['phone'] }}</br> 
                 </p>
             </div>
         </div>
@@ -134,14 +134,14 @@
                             <h2>Total Price</h2>
                         </td>
                         <td>
-                            <h2>Rp {{ $totalPrice }}</h2>
+                            <h2>Rp. {{ $totalPrice }}</h2> 
                         </td>
                     </tr>
                 </table>
             </div>
-            <div id="legalcopy">
+            <div id="legalcopy">  
                 <center>
-                    <p class="legal"><strong>Thank You!</strong></p>
+                    <p class="legal"><strong>Thank You For Shopping!</strong></p>
                 </center>
             </div>
         </div>
