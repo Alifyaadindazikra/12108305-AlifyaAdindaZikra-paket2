@@ -1,13 +1,18 @@
 @extends('layouts.dashboard')
 @section('title', 'Dashboard - Sale')
 @section('content')
+
     <section class="section">
         <section class="section-header">
             <h1>Sale</h1>
         </section>
-        <form action="{{ route('sale') }}" method="GET">
-    <input type="text" name="query" placeholder="Search...">
-    <button type="submit">Search</button>
+    <form action="{{ route('sale') }}" method="GET">
+        <div class="input-group mb-3">
+            <input type="text" name="query" class="form-control" placeholder="Search...">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
         @if (session('success'))
             <div class="alert alert-success alert-dismissible show fade">
                 <div class="alert-body">

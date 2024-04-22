@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -15,6 +16,13 @@ class ProductController extends Controller
         $searchTerm = $request->input('query');
         $products = Product::where('name','like','%'.$searchTerm.'%')->get();
         
+        if (count($products) == 0 && !empty($searchTerm)) {
+            Session::forget('success');
+            Session::flash("error", 'No product found!');
+        } else {
+            Session::forget('error');
+            Session::flash('success', 'Products retrieved successfully!');
+        }
 
         return view('pages.product.index', compact('products'));
     }

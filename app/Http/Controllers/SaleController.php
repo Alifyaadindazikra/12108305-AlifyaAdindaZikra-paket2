@@ -10,6 +10,7 @@ use App\Models\Sale;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
 
 class SaleController extends Controller
@@ -101,14 +102,25 @@ class SaleController extends Controller
     public function index(Request $request)
     {
         $searchTerm = $request->input('query');
-        $customer= Customer::find($id);
-        $sales = Sale::where('$id','like','%'.$searchTerm.'%')->get();
-        
-        if (Auth::user()->role == "admin") {
-            $sales = Sale::all();
+        // $sales = Sale::where('customer_id','like','%'.$searchTerm.'%')->get();
+        $sales = Sale::with('customer')
+        ->whereHas('customer', function($query) use ($searchTerm) {
+            $query->where('name','like','%'.$searchTerm.'%');
+        })
+        ->get();
+
+        if (count($sales) == 0 && !empty($searchTerm)) {
+            Session::forget('success');
+            Session::flash("error", 'No sales found!');
         } else {
-            $sales = Sale::where("user_id", Auth::user()->id)->get();
+            Session::forget('error');
+            Session::flash('success', 'Sales retrieved successfully!');
         }
+
+        if(count($sales) == 0) {
+            $sales = Auth::user()->role == "admin" ? Sale::all() : Sale::where("user_id", Auth::user()->id)->get();     
+        }
+        
         return view('pages.sale.index', compact('sales'));
     }
 

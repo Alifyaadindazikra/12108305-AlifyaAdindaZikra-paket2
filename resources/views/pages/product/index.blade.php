@@ -6,8 +6,12 @@
             <h1>Product</h1>
         </section>
         <form action="{{ route('product') }}" method="GET">
-    <input type="text" name="query" placeholder="Search...">
-    <button type="submit">Search</button>
+            <div class="input-group mb-3">
+                <input type="text" name="query" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
          </form>
         @if (session('success'))
             <div class="alert alert-success alert-dismissible show fade">
